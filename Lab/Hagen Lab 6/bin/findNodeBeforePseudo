@@ -1,0 +1,19 @@
+searches for an event with a later start time then inserts the event before that one.
+
+if calendar is empty
+	return null
+else
+	runner equals the firstNode
+	if the newData compared to firstNode equals -1
+		runners next equals firstNode
+		firstNode equals runner
+	while runner doesnt equal null and runner compared to newData equals -1 or 0
+		runner equals runners next
+
+return the runner
+	
+		
+		
+	
+	
+	

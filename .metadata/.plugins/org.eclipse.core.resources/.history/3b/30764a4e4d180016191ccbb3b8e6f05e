@@ -1,0 +1,208 @@
+public class TestTheGenericLinkedList {
+
+  public static void main(String[] args) {
+
+    Testing.setVerbose(true);
+    System.out.println("Starting Tests");
+
+    testCreate();
+
+    testAdd();
+    
+    testRemoveIndex();
+    
+    testGet();
+
+    testInsertSortedString();
+    
+    testFind();
+    
+    testRemoveContact();
+    
+    System.out.println("Tests Complete");
+  }
+
+  private static void testCreate() {
+    Testing.testSection("Creation tests");
+
+    GenericLinkedList<String> ll = new GenericLinkedList<String>();
+    Testing.assertEquals("A new list is empty", "{}", ll.toString());
+  }
+
+  private static void testAdd() {
+    Testing.testSection("Testing adding elements to the LinkedList");
+
+    GenericLinkedList<String> ll = new GenericLinkedList<String>();
+    ll.add("A", 0);
+    Testing.assertEquals("{} + A", "{A}", ll.toString());
+    Testing.assertEquals("Length changes", 1, ll.getLength());
+
+    ll = new GenericLinkedList<String>();
+    ll.add("A", 0);
+    ll.add("B", 0);
+    Testing.assertEquals("{A} + B at index 0", "{B, A}", ll.toString());
+
+    ll.add("C", 2);
+    Testing.assertEquals("Adding at end of list", "{B, A, C}", ll.toString());
+    
+    ll.add("D", 2);
+    Testing.assertEquals("Adding in middle of list", "{B, A, D, C}", ll.toString());
+    Testing.assertEquals("Length changes", 4, ll.getLength());
+  }
+  
+  private static void testRemoveIndex() {
+	  Testing.testSection("Testing removing elements from the LinkedList");
+	  
+	  GenericLinkedList<String> l1 = new GenericLinkedList<String>();
+	  
+	  l1.add("A", 0);
+	  l1.remove(0);
+	  Testing.assertEquals("Remove only element from list", "{}", l1.toString());
+	  Testing.assertEquals("Length changes", 0, l1.getLength());
+	  
+	  l1.add("A", 0);
+	  l1.add("B", 1);
+	  l1.add("C", 2);
+	  l1.add("D", 3);
+	  l1.remove(0);
+	  Testing.assertEquals("Remove from start", "{B, C, D}", l1.toString());
+	  String returnStr = l1.remove(2);
+	  Testing.assertEquals("Remove from end of list", "{B, C}", l1.toString());
+	  Testing.assertEquals("Length Changes", 2, l1.getLength());
+	  Testing.assertEquals("Returns removed string", "D", returnStr);
+  }
+  
+  private static void testGet() {
+	  Testing.testSection("Testing removing elements from the LinkedLst");
+	  
+	  GenericLinkedList<String> l1 = new GenericLinkedList<String>();
+	  
+	  l1.add("A", 0);
+	  l1.add("B", 1);
+	  l1.add("C", 2);
+	  l1.add("D", 3);
+	  
+	  Testing.assertEquals("Get item from start", "A", l1.get(0));
+	  Testing.assertEquals("Get item from end", "D", l1.get(3));
+	  Testing.assertEquals("Get Item from middle", "C", l1.get(2));
+  }
+  
+  private static void testInsertSortedString() {
+	  Testing.testSection("Testing inserting sorted string elements");
+	  
+	  GenericLinkedList<String> l1 = new GenericLinkedList<String>();
+
+	  l1.insertSorted("B");
+	  Testing.assertEquals("Insert to empty list", "{B}", l1.toString());
+	  l1.insertSorted("C");
+	  Testing.assertEquals("Inserting B", "{B, C}", l1.toString());
+	  l1.insertSorted("A");
+	  Testing.assertEquals("Insert A", "{A, B, C}", l1.toString());
+	  l1.insertSorted("D");
+	  //Testing.assertEquals("Insert F", "{A, B, C, D}", l1.toString());
+	  
+	  GenericLinkedList<Contact> lc = new GenericLinkedList<Contact>();
+	  
+	  Person p1 = new Person("Obama");
+	  Person p2 = new Person("Bobama");
+	  
+	  lc.insertSorted(p1);
+	  lc.insertSorted(p2);
+	  Testing.assertEquals("Inserting sorted people", "{Bobama, Obama}", lc.toString());
+	  
+	  Person p3 = new Person("Abama");
+	  lc.insertSorted(p3);
+	  Testing.assertEquals("Insert sorted people, start", "{Abama, Bobama, Obama}", lc.toString());
+	  
+	  Person p4 = new Person("Pobama");
+	  lc.insertSorted(p4);
+	  Testing.assertEquals("Insert sorted people, end", "{Abama, Bobama, Obama, Pobama}", lc.toString());
+	  
+	  Person p5 = new Person("Dobama");
+	  lc.insertSorted(p5);
+	  Testing.assertEquals("Insert sorted people, middle", "{Abama, Bobama, Dobama, Obama, Pobama}", lc.toString());
+	  
+	  GenericLinkedList<Contact> lb = new GenericLinkedList<Contact>();
+	  
+	  Business b1 = new Business("Dell");
+	  Business b2 = new Business("Nell");
+	  lb.insertSorted(b1);
+	  lb.insertSorted(b2);
+	  Testing.assertEquals("Insert sorted business", "{Dell, Nell}", lb.toString());
+	  
+	  Business b3 = new Business("Opell");
+	  lb.insertSorted(b3);
+	  Testing.assertEquals("Insert sorted business, end", "{Dell, Nell, Opell}", lb.toString());
+	  
+	  Business b4 = new Business("Adell");
+	  lb.insertSorted(b4);
+	  Testing.assertEquals("Insert sorted business, beginning", "{Adell, Dell, Nell, Opell}", lb.toString());
+	  
+	  GenericLinkedList<Contact> lbc = new GenericLinkedList<Contact>();
+	  
+	  lbc.insertSorted(p1);
+	  lbc.insertSorted(b1);
+	  Testing.assertEquals("Inserting business/person", "{Dell, Obama}", lbc.toString());
+	  
+	  lbc.insertSorted(p3);
+	  lbc.insertSorted(b2);
+	  Testing.assertEquals("Inserting more mixed types", "{Abama, Dell, Nell, Obama}", lbc.toString());
+	  
+	  Person p6 = new Person("Delll");
+	  lbc.insertSorted(p6);
+	  Testing.assertEquals("Inserting similar names", "{Abama, Dell, Delll, Nell, Obama}", lbc.toString());
+  }
+  
+  private static void testFind() {
+	  Testing.testSection("Testing find");
+	  
+	  GenericLinkedList<Contact> l1 = new GenericLinkedList<Contact>(); 
+	  Person p1 = new Person("Obama");
+	  Person p2 = new Person("Bobama");
+	  Person p3 = new Person("Abama");
+	  Business b1 = new Business("Dell");
+	  Business b2 = new Business("Nell");
+	  Business b3 = new Business("Opell");
+	  
+	  l1.insertSorted(p1);
+	  l1.insertSorted(p2);
+	  l1.insertSorted(p3);
+	  l1.insertSorted(b1);
+	  l1.insertSorted(b2);
+	  l1.insertSorted(b3);
+	  
+	  Testing.assertEquals("Find person", "Obama", l1.find(p1).toString());
+	  Contact returnTest = l1.find(new Person("nope"));
+	  Testing.assertEquals("Find non-existent person, equals null", true, returnTest == null);
+	  Testing.assertEquals("Find business", "Nell", l1.find(b2).toString());
+  }
+  
+  private static void testRemoveContact() {
+	  Testing.testSection("Testing remove");
+	  
+	  GenericLinkedList<Contact> l1 = new GenericLinkedList<Contact>();
+	  Person p1 = new Person("Obama");
+	  l1.insertSorted(p1);
+	  l1.remove(p1);
+	  Testing.assertEquals("Remove item from one item list", "{}", l1.toString());
+	  Testing.assertEquals("Length changes", 0, l1.getLength());
+	  
+	  Person p2 = new Person("Bobama");
+	  Person p3 = new Person("Abama");
+	  Business b1 = new Business("Dell");
+	  Business b2 = new Business("Nell");
+	  Business b3 = new Business("Opell");
+	  
+	  l1.insertSorted(p1);
+	  l1.insertSorted(p2);
+	  l1.insertSorted(p3);
+	  l1.insertSorted(b1);
+	  l1.insertSorted(b2);
+	  l1.insertSorted(b3);
+	  
+	  l1.remove(p3);
+	  Testing.assertEquals("Remove from start of list", "{Bobama, Dell, Nell, Obama, Opell}", l1.toString());
+	  
+  }
+  
+}

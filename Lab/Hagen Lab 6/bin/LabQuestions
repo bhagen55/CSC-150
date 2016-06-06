@@ -1,0 +1,21 @@
+1: 
+	findBeforeNode: 0(n)
+	insertAfter: 0(n)
+2: 
+	The insertAfter method deals directly with listNodes, so it should contain those nodes to the LinkedList
+	class as that is the only reason why ListNode can have public instance variables. This linkedList class
+	is only supposed to deal with sorted events, so the only method the user should need to use is insertSorted
+	and insertAtHead to manage the capacity of the list. insertAfter would not conform to that, so it must be hidden.
+	
+	findNodeBefore is used to find a specific event and returns a node, which should never exit the LinkedList
+	class as stated above because that is what allows LinkNode to have public instance variables.
+3:
+	A LinkedList implementation would be best for this situation as it is more efficient to add events to a linkedList
+	versus adding events to an array. An array requires large amounts of information to be copied and moved around 
+	while a linkedlist only requires a few pointers to be changed.
+4:
+	An array implementation would be best for this situation because there are not many items being added/removed,
+	and it is easier to access an array using indexes than a linkedlist. To access an index in a linkedlist, you
+	must step through the list till you find the index, but with an array the index value can be accessed directly.
+	
+	

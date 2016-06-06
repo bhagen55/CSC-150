@@ -1,0 +1,12 @@
+step through the linkedlist until the nodeBefore is found, then make a new node with given
+event and insert that node after nodeBefore and connect the new node to the later nodes.
+
+(precondition: the linkedList has at least one node)
+
+runner equals the first node
+while the runner doesn't equal the nodeBefore
+	set runner equal to the next node
+
+make a new node using the event data
+set the runners next node to the new nodes next node
+set the runners next node to the new node

@@ -1,0 +1,61 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class BinarySearchTreeTests {
+
+    private BinarySearchTree<String> tree;
+
+    @Before
+    public void setUp() throws Exception {
+        tree = new BinarySearchTree<String>();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        tree = null;
+    }
+
+    @Test
+    public void testBSTtoStringEmptyTree() {
+        assertEquals("toString representation of an emtpy string", "", tree.toString());
+    }
+
+    @Test
+    public void testBSTshowTreeEmptyTree() {
+        assertEquals("showTree representation of an emtpy string", "-", tree.showTree());
+    }
+
+    @Test
+    public void testBSTtoString() {
+        tree.add("K");
+        tree.add("D");
+        tree.add("R");
+        tree.add("B");
+        tree.add("Z");
+        assertEquals("Adding K, D, R, B, Z to an initially empty tree. Representation created by toString.", "B\nD\nK\nR\nZ", tree.toString());
+        
+        tree.add("A");
+        tree.add("C");
+        tree.add("H");
+        assertEquals("Adding A, C, H to already made tree, represented by toString.", "Something", tree.toString());
+    }
+
+    @Test
+    public void testBSTshowTree() {
+        tree.add("K");
+        tree.add("D");
+        tree.add("R");
+        tree.add("B");
+        tree.add("Z");
+        assertEquals("Adding K, D, R, B, Z to an initially empty tree. Representation created by showTree.", "(K (D (B - -) -) (R - (Z - -)))", tree.showTree());
+        
+        
+    }
+
+    // Add more tests of your own. Each jUnit test method should only 
+    // have one assert statement;    
+    
+}

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Projects\BlairHagen_Project8WeThePeople"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Lab\Hagen Lab 8"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Lab\Hagen Lab 9"/>
+			<item value="C:\Users\bhage\OneDrive\Union Documents\Data Structures\Projects\BlairHagen_Project6AddressBook"/>
+			<item value="C:\Users\bhage\OneDrive\Union Documents\Data Structures\Projects\BlairHagen_Project7Postfix"/>
+			<item value="C:\Users\bhage\OneDrive\Union Documents\Data Structures\Projects\BlairHagen_Project8WeThePeople"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Projects\BlairHagen_Project7Postfix"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Projects"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Projects\BlairHagen-Project6AddressBook"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Projects\Project 3"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\GenericBagExample"/>
+			<item value="C:\Users\Blair Hagen\Desktop\project-06-addressbook-starter"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Lab\Hagen Lab 5"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Lab\Hagen Lab 6"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Projects\BlairHagen_Project5GetInLineAgain"/>
+			<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\BlairHagen_Project5GetInLineAG"/>
+			<item value="C:\Users\bhage\OneDrive\Union Documents\Data Structures\Projects\BlairHagen_Project5GetInLineAgain"/>
+			<item value="C:\Users\bhage\OneDrive\Union Documents\Data Structures\Projects\project-05-get-in-line-again"/>
+			<item value="C:\Users\bhage\OneDrive\Union Documents\Data Structures\Projects\project-05-get-in-line-again-starter"/>
+			<item value="C:\Users\bhage\OneDrive\Union Documents\Data Structures\Lab\Hagen Lab 5"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.internal.ide.dialogs.ProjectContentsLocationArea">
+		<item value="C:\Users\Blair Hagen\OneDrive\Union Documents\Data Structures\Projects" key="OUTSIDE_LOCATION"/>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.jdt.ui.wizards.JavaProjectWizard" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.jdt.ui.java"/>
+		</list>
+	</section>
+	<section name="SaveAsDialogSettings">
+		<item value="525" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="580" key="DIALOG_HEIGHT"/>
+		<item value="706" key="DIALOG_X_ORIGIN"/>
+		<item value="142" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

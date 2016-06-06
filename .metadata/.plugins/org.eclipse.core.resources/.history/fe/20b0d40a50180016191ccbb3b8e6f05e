@@ -1,0 +1,282 @@
+/**
+ * Generic linked list for storing contacts/businesses alphabetically
+ * 
+ * @author Blair Hagen
+ * @version 5-10-2016
+ */
+public class GenericLinkedList<T extends Comparable<T>>{
+	
+	private int length;
+	private GenericListNode<T> firstNode;
+	
+	/**
+	 * Default constructor
+	 * Creates empty list
+	 */
+	public GenericLinkedList() {
+		length = 0;
+		firstNode = null;
+	}
+	
+	/**
+	 * Getter for length
+	 * @return length length of linkedlist
+	 */
+	public int getLength() {
+		return length;
+	}
+	
+	/**
+	 * Inserts new node at given index
+	 * if list is empty, node is inserted at the head
+	 * 
+	 * @param toAdd
+	 * @param index
+	 */
+	public void add(T toAdd, int index) {
+		GenericListNode<T> newNode = new GenericListNode<T>(toAdd);
+		if (length == 0)
+		{
+			firstNode = newNode;
+		}
+		else if (index == 0)
+		{
+			newNode.next = firstNode;
+			firstNode = newNode;
+		}
+		else
+		{
+			GenericListNode<T> nodeBefore = search(index - 1);
+			GenericListNode<T> nodeAfter = search(index);
+			
+			nodeBefore.next = newNode;
+			newNode.next = nodeAfter;
+		}
+		length++;
+	}
+	
+	/**
+	 * Inserts new node at correct index so that elements before it
+	 * are <= all elements after are > based on compareTo method for
+	 * item type T.
+	 * 
+	 * @param toAdd
+	 */
+	public void insertSorted(T toAdd) {
+        GenericListNode<T> nodeBefore = this.findNodeBefore(toAdd);
+        GenericListNode<T> newNode = new GenericListNode<T>(toAdd);
+        
+        if (nodeBefore == null) {
+            add(toAdd, 0);
+        }
+        else {
+        	newNode.next = nodeBefore.next;
+        	nodeBefore.next = newNode;
+        }
+	}
+	
+	/**
+	 * removes node with given index and returns it
+	 * 
+	 * @param index node's index to be removed
+	 * @return removed node data
+	 */
+	public T remove(int index) {
+		GenericListNode<T> nodeBefore;
+		GenericListNode<T> nodeAfter;
+		GenericListNode<T> removeNode;
+		
+		if (index == 0)
+		{
+			nodeAfter = firstNode.next;
+			removeNode = firstNode;
+			firstNode = nodeAfter;
+		}
+		else
+		{
+			nodeBefore = search(index - 1);
+			nodeAfter = search(index + 1);
+			removeNode = search(index);
+			nodeBefore.next = nodeAfter;
+		}
+		length--;
+		return(removeNode.data);
+	}
+	
+	/**
+	 * finds first node matching given data using
+	 * compareTo and removes/returns it
+	 * 
+	 * @param toRemove
+	 * @return
+	 */
+	public T remove(T toRemove) {
+		GenericListNode<T> nodeBefore;
+		GenericListNode<T> nodeAfter;
+		GenericListNode<T> removeNode = searchNode(toRemove);
+		System.out.println("removeNode: " + removeNode.toString());
+		
+		if (removeNode.data.compareTo(firstNode.data) == 0)
+		{
+			nodeAfter = firstNode.next;
+			firstNode = nodeAfter;
+		}
+		else
+		{
+			nodeBefore = findNodeBefore(toRemove);
+			
+			System.out.println("nodeBefore: " + nodeBefore.toString());
+			nodeAfter = removeNode.next;
+			
+			System.out.println("nodeAfter: " + nodeAfter.toString());
+			nodeBefore.next = nodeAfter;
+		}
+		length--;
+		return(removeNode.data);
+	}
+	
+	
+	/**
+	 * Finds first node matching given node using
+	 * compareTo and returns its data. If none exists, returns null.
+	 * 
+	 * @param toFind
+	 * @return
+	 */
+	public T find(T toFind) {
+		GenericListNode<T> returnNode = searchNode(toFind);
+		if (returnNode != null)
+		{
+			return (returnNode.data);
+		}
+		else
+		{
+			return(null);
+		}
+	}
+	
+	/**
+	 * returns data in node with given index
+	 * 
+	 * @param index
+	 * @return data of desired node
+	 * 
+	 * Prerequisite: list must not be empty!
+	 */
+	public T get(int index) {
+		return(search(index).data);
+	}
+	
+	/**
+	 * Sets node with given index to given data
+	 *  
+	 * @param value
+	 * @param index
+	 */
+	public void set(T value, int index) {
+		GenericListNode<T> setNode = search(index);
+		setNode.data = value;
+	}
+
+	/**
+	 * Returns string representation of linked list
+	 * 
+	 * @return
+	 */
+	public String toString() {
+		StringBuilder strBuild = new StringBuilder();
+		strBuild.append("{");
+		
+		GenericListNode<T> runner = firstNode;
+		while (runner != null) 
+		{
+			strBuild.append(runner.toString());
+			runner = runner.next;
+			if (runner != null)
+			{
+				strBuild.append(", ");
+			}
+		}
+		strBuild.append("}");
+		return(strBuild.toString());
+	}
+	
+	/**
+	 * Private method that returns desired list node
+	 * based on index
+	 * 
+	 * @param index
+	 * @return listnode desired list node
+	 * 
+	 * prerequisite: LinkedList cannot be empty!
+	 */
+	private GenericListNode<T> search(int index) {
+		GenericListNode<T> runner = firstNode;
+		
+		for (int i = 0; i < index; i++)
+		{
+			runner = runner.next;
+		}
+		return runner;
+	}
+	
+	/**
+	 * Private method that returns desired list node
+	 * based on data
+	 * 
+	 * @param toFind
+	 * @return desired listNode
+	 */
+	private GenericListNode<T> searchNode(T toFind) {
+		GenericListNode<T> runner = firstNode;
+		while (runner.next != null && runner.data.compareTo(toFind) != 0)
+		{
+			runner = runner.next;
+		}
+		if (runner.data.compareTo(toFind) == 0)
+		{
+			return(runner);
+		}
+		else
+		{
+			return(null);
+		}
+	}
+	
+    /**
+     * Given a new event to be inserted in the list, finds the correct position for it.
+     *
+     * @param newData an event to be inserted in the list
+     *
+     * @return a pointer to the node in the linked list that will
+     * immediately precede newData once newData gets inserted.
+     * Returns null if no such node exists (which means newData goes first).
+     */
+    private GenericListNode<T> findNodeBefore(T newData)
+    {
+    	if (getLength() == 0)
+    	{
+    		return(null);
+    	}
+    	else
+    	{
+    		GenericListNode<T> runner = firstNode;
+    		if (runner.data.compareTo(newData) == 1)
+    		{
+    			return(null);
+    		}
+    		else
+    		{
+    			while (runner.next != null && runner.next.data.compareTo(newData) < 0)
+    			{
+    				runner = runner.next;
+    			}
+    			while (runner.next != null && runner.next.data.compareTo(newData) == 0)
+    			{
+    				runner = runner.next;
+    			}	
+    			return(runner);
+    		}
+    	}
+    }
+}

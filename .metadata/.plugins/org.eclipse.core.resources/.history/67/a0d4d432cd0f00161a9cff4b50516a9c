@@ -1,0 +1,113 @@
+/**
+ * A collection of linked data nodes forming a linked list
+ * 
+ * @author Blair Hagen
+ * @version 5-1-2016
+ *
+ */
+public class LinkedList {
+	
+	private int length;				// number of nodes in list
+	private ListNode firstNode;		// pointer to first node
+	
+	/**
+	 * Default constructor, creates an empty list
+	 */
+	public void linkedList() {
+		length = 0;
+		firstNode = null;
+	}
+	
+	/**
+	 * Returns number of elements in list
+	 * @return size
+	 * 		Number of elements in list
+	 */
+	public int size() {
+		return(length);
+	}
+	
+	/**
+	 * Returns string contained in node with given index
+	 * @return string
+	 * 		String contained in node
+	 */
+	public String get(int index) {
+		ListNode desNode = search(index);
+		return(desNode.data);
+	}
+	
+	/**
+	 * Sets the data within the node at index to given string
+	 * @param value
+	 * 	Desired string for the node to contain
+	 * @param index
+	 * 	Index of node to change
+	 */
+	public void set(String value, int index) {
+		ListNode desNode = search(index);
+		desNode.data = value;
+	}
+	
+	/**
+	 * Inserts node with given data into list at given index
+	 * @param value
+	 *  Desired string for the node to contain
+	 * @param index
+	 *  Index of where to put node
+	 */
+	public void add(String value, int index) {
+		ListNode nodeBefore = search(index - 1);
+		ListNode nodeAfter = search(index);
+		
+		ListNode newNode = new ListNode(value, nodeAfter);
+		nodeBefore.next = newNode;
+	}
+	
+	/**
+	 * Removes node at given index and returns its data
+	 * @param index
+	 * 		Node index to remove
+	 * @return returnString
+	 * 		Data of removed node
+	 */
+	public String remove(int index) {
+		ListNode nodeBefore = search(index - 1);
+		ListNode nodeAfter = search(index + 1);
+		ListNode removeNode = search(index);
+		
+		String returnString = removeNode.data;
+		nodeBefore.next = nodeAfter;/'le'
+		
+		
+		
+		return(returnString);
+	}
+	
+	/**
+	 * Returns string representation of linked list
+	 * @return string
+	 * 		String representation of linked list
+	 */
+	public String toString() {
+		return("string");
+	}
+	
+	/**
+	 * Returns list node at desired index
+	 * @param index
+	 * 	index of desired list node
+	 * @return searchNode
+	 * 	desired list node
+	 * 	
+	 */
+	private ListNode search(int searchIndex) {
+		ListNode runner = firstNode;
+		
+		for (int i = 0; i <= searchIndex; i++)
+		{
+			runner = runner.next;
+		}
+		return(runner);
+	}
+}

@@ -1,0 +1,2 @@
+added a getter method for card value
+Added secondary instance values to store alternate value for a card and initialized them to null

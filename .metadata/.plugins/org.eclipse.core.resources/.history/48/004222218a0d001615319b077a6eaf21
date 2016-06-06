@@ -1,0 +1,26 @@
+
+public class Client {
+	public static void main(String[] args){
+		Sequence testSeq = new Sequence();
+		testSeq.start();
+		testSeq.addBefore("frst");
+		testSeq.addBefore("test");
+		testSeq.addBefore("try");
+		testSeq.addAfter("yep");
+		testSeq.addBefore("nexasda");
+		
+		System.out.println(testSeq.toString());
+		
+		Sequence nextSeq = new Sequence(10);
+		nextSeq.start();
+		nextSeq.addBefore("one");
+		nextSeq.addBefore("two");
+		nextSeq.addBefore("three");
+		nextSeq.addBefore("four");
+		nextSeq.addBefore("five");
+		//nextSeq.addBefore("six");
+		testSeq.addAll(nextSeq);
+		System.out.println(testSeq.toString());
+		
+	}
+}

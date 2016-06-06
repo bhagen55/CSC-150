@@ -1,0 +1,120 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class BinarySearchTreeTests {
+
+    private BinarySearchTree<String> tree;
+
+    @Before
+    public void setUp() throws Exception {
+        tree = new BinarySearchTree<String>();
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        tree = null;
+    }
+
+    @Test
+    public void testBSTtoStringEmptyTree() {
+        assertEquals("toString representation of an emtpy string", "", tree.toString());
+    }
+
+    @Test
+    public void testBSTshowTreeEmptyTree() {
+        assertEquals("showTree representation of an emtpy string", "-", tree.showTree());
+    }
+
+    
+    //----toString----
+    @Test
+    public void testOneTree() {
+    	tree.add("A");
+    	assertEquals("Adding one element to tree, represented by toString", "A", tree.toString());
+    }
+    
+    @Test
+    public void testBSTtoString() {
+        tree.add("K");
+        tree.add("D");
+        tree.add("R");
+        tree.add("B");
+        tree.add("Z");
+        assertEquals("Adding K, D, R, B, Z to an initially empty tree. Representation created by toString.", "B\nD\nK\nR\nZ", tree.toString());
+    }
+    
+    @Test
+    public void testLargerTree() {
+        tree.add("K");
+        tree.add("D");
+        tree.add("R");
+        tree.add("B");
+        tree.add("Z");
+        tree.add("A");
+        tree.add("C");
+        tree.add("H");
+        tree.add("J");
+        assertEquals("Adding A, C, H to already made tree, represented by toString.", "A\nB\nC\nD\nH\nJ\nK\nR\nZ", tree.toString());
+    }
+    
+    
+    
+    //----showTree----
+    @Test
+    public void testOneShowTree() {
+    	tree.add("A");
+    	assertEquals("Adding one element to tree, represented by toString", "(A - -)", tree.showTree());
+    }
+
+    @Test
+    public void testBSTshowTree() {
+        tree.add("K");
+        tree.add("D");
+        tree.add("R");
+        tree.add("B");
+        tree.add("Z");
+        assertEquals("Adding K, D, R, B, Z to an initially empty tree. Representation created by showTree.", "(K (D (B - -) -) (R - (Z - -)))", tree.showTree());
+    }
+    
+    @Test
+    public void testLargerShowTree() {
+        tree.add("K");
+        tree.add("D");
+        tree.add("R");
+        tree.add("B");
+        tree.add("Z");
+        tree.add("A");
+        tree.add("C");
+        tree.add("H");
+        tree.add("J");
+        assertEquals("Adding A, C, H to already made tree, represented by toString.", "(K (D (B (A - -) (C - -)) (H - (J - -))) (R - (Z - -)))", tree.showTree());
+    }
+
+    
+    
+    //----find----
+    @Test
+    public void testFindOne() {
+    	tree.add("K");
+    	assertEquals("Checking for K in a tree containing K", "K", tree.find("K"));
+    }
+    
+    @Test
+    public void testFind() {
+    	tree.add("K");
+        tree.add("D");
+        tree.add("R");
+        tree.add("B");
+        tree.add("Z");
+        tree.add("A");
+        tree.add("C");
+        tree.add("H");
+        tree.add("J");
+        assertEquals("Checking for element at end of right tree", "Z", tree.find("Z"));
+    }
+  
+    
+}

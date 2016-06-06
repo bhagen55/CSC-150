@@ -1,0 +1,8 @@
+1. What is the big-O runtime (in terms of the size of the address book) of adding an entry to your address book?
+	Because of findNodeBefore() stepping through the linkedList, the worst case runtime is O(n)
+2. What is the big-O runtime of finding an entry in your address book?
+    Because of searchNode() stepping through the linkedList, the worst case runtime is O(n)
+3. What is the big-O runtime of removing an entry from your address book?
+	Because of searchNode() and findNodeBefore() stepping through the linkedList, worst case runtime is O(n) 
+4. What would be the big-O runtimes for each of these three methods if you implemented your address book using an array instead of a linked list?
+	They would all be O(n) because every method has to at least step through the array, or create new arrays and fill them with data.

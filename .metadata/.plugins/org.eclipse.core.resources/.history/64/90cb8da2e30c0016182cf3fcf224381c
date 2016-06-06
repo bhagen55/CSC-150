@@ -1,0 +1,14 @@
+
+public class Client {
+	public static void main(String[] args){
+		Sequence testSeq = new Sequence();
+		testSeq.start();
+		testSeq.addAfter("frst");
+		testSeq.addAfter("test");
+		testSeq.addAfter("try");
+		testSeq.addAfter("yep");
+		
+		System.out.println(testSeq.toString());
+		
+	}
+}

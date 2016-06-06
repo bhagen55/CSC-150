@@ -1,0 +1,35 @@
+
+public class Client {
+	public static void main(String[] args){
+		Sequence testSeq = new Sequence();
+		testSeq.start();
+		testSeq.addBefore("frst");
+		testSeq.addBefore("test");
+		testSeq.addBefore("try");
+		testSeq.addAfter("yep");
+		testSeq.addBefore("nexasda");
+		
+		//System.out.println(testSeq.toString());
+		
+		Sequence nextSeq = new Sequence(10);
+		nextSeq.start();
+		nextSeq.addBefore("one");
+		nextSeq.addBefore("two");
+		nextSeq.addBefore("three");
+		nextSeq.addBefore("four");
+		nextSeq.addBefore("five");
+		nextSeq.addBefore("six");
+		//testSeq.addAll(nextSeq);
+		//System.out.println(testSeq.toString());
+		//System.out.println(Sequence.concatenation(nextSeq, testSeq).toString());
+		
+		//System.out.println(nextSeq.getCapacity());
+		//nextSeq.ensureCapacity(8);
+		//System.out.println(nextSeq.getCapacity());
+		
+		System.out.println(nextSeq.getCapacity());
+		nextSeq.trimToSize();
+		System.out.println(nextSeq.getCapacity());
+		
+	}
+}

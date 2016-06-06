@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 elements to &apos;Hagen Lab 4/src&apos;&#x0D;&#x0A;- Original project: &apos;Hagen Lab 4&apos;&#x0D;&#x0A;- Destination element: &apos;Hagen Lab 4/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Deck.java&#x0D;&#x0A;     Client.java&#x0D;&#x0A;     Card.java&#x0D;&#x0A;- Update references to refactored element" description="Move files" destination="/src" element1="Deck.java" element2="Client.java" element3="Card.java" files="3" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1461365395587" units="0" version="1.0"/>
+</session>

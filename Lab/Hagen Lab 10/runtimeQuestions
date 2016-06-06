@@ -1,0 +1,4 @@
+1. The runtime would be O(n log(n)) because it uses the heapify method, and that method must touch every element in the array.
+
+2. The runtime for sorting an unsorted linked list, the runtime would be 0(n) because the entire linked list has to be searched
+every time the method is called.

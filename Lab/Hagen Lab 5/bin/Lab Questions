@@ -1,0 +1,10 @@
+1. Worst case runtimes for three written methods
+	removeHead has notation O(1).
+	insertAtTail has notation O(n).
+	search has notation O(n).
+2. Running time comparison for an array with remove head
+	The operation on an array would be much longer as an array must have all the elements moved to the left one.
+	An array's removeHead O notation would be O(n), versus the O(1) of linkedNode removeHead.
+3. Running time comparison for search method
+	They are the same as both must step through every element in the array/linkedlist.
+	They are both O(n).

@@ -1,0 +1,13 @@
+1. DrawingBox myBoard;  This line creates an object variable of type DrawingBox called myBox.
+myBoard = new DrawingBox();  This line invokes the constructor method and adds whatever is needed to memory for the object.
+myBoard.setVisible(true);  This line calls the method setVisible inside the class DrawingBox and applies it to the object myBoard.
+myBoard.drawRect(320,230,120,180);  This line calls the method drawRect inside the class DrawingBox and applies it to the object myBoard.
+
+2. The constructor method was invoked on line 2 when myBoard is set equal to new DrawingBox().
+It is legal to use the constructor with no methods because the documents show the constructor DrawingBox() as valid.
+It could have accepted a string argument that would have titled the box with the string argument given.
+
+3. drawRect represents a method within the class DrawingBox.
+The version being used is the one that draws the outline of a specified rectangle using the given dimensions.
+I know this because the arguments used in the code match the arguments used in the documents.
+The arguments represent the x coord and y coord of the rectangle and the width and height of the rectangle.

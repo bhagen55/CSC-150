@@ -1,0 +1,4 @@
+added custom constructor that makes a deck based on desired number of cards and an instance variable to aid it
+added method to return the next card in the deck without actually removing it from the deck
+added a method to return the number of cards left in the deck
+added additional condition to the deck deal method to accommodate different quantity decks

@@ -1,0 +1,31 @@
+/**
+ * User interface for managing an address book
+ * Deals with the linkedlist
+ * 
+ * @author Blair Hagen
+ * @version 5-10-2016
+ *
+ */
+public class AddressBook {
+	
+	/**
+	 * Default Constructor
+	 * Creates empty string linkedlist
+	 */
+	public AddressBook() {
+		GenericLinkedList<String> bookList = new GenericLinkedList<String>();
+	}
+	
+	public void add() {
+		
+	}
+	
+	public void find(String name) {
+		
+	}
+	
+	public void remove(String name) {
+		
+	}
+	
+}
